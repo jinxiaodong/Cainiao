@@ -1,0 +1,10 @@
+apply plugin: 'com.android.application'
+apply from: '../dependencies.gradle'
+android {
+    defaultConfig {
+        applicationId application_id
+    }
+}
+
+dependencies {
+}

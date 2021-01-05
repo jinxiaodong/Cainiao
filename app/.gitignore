@@ -1,0 +1,11 @@
+/inside
+/qiyuesuo
+*.iml
+.gradle
+/local.properties
+/.idea
+.DS_Store
+/build
+/captures
+/gradle
+/app/bugly
