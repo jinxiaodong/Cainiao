@@ -15,7 +15,7 @@ import okio.Buffer
  * @description： 公共header拦截器
  * @date 2021/8/12
  */
-class CniaoInterceptor : Interceptor {
+class CommonHeadersInterceptor : Interceptor {
 
     companion object {
 
@@ -36,7 +36,7 @@ class CniaoInterceptor : Interceptor {
 
         val attachHeaders = mutableListOf<Pair<String, String>>(
             "appid" to NET_CONFIG_APPID,
-            "platform" to "android", //如果重复请求，可能会报重复签名错误，yapi 平台标记则不会
+            "platform" to "yapi", //如果重复请求，可能会报重复签名错误，yapi 平台标记则不会
             "timestamp" to System.currentTimeMillis().toString(),
 
             "brand" to DeviceUtils.getManufacturer(),

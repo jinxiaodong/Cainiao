@@ -1,10 +1,7 @@
 package com.jarvis.common.net.support
 
 import android.os.Environment
-import com.jarvis.common.net.config.CniaoInterceptor
-import com.jarvis.common.net.config.HttpLogInterceptor
-import com.jarvis.common.net.config.LocalCookieJar
-import com.jarvis.common.net.config.RetryInterceptor
+import com.jarvis.common.net.config.*
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import java.io.File
@@ -21,6 +18,7 @@ class OkHttpClientFactory {
         var maxRetry = 0
         fun getDefaultOkHttpClient(): OkHttpClient {
 
+            val sslSocketFactory = HttpsUtils.getSslSocketFactory()
             return OkHttpClient.Builder()
                 .callTimeout(10, TimeUnit.SECONDS)
                 .connectTimeout(10, TimeUnit.SECONDS)
@@ -30,13 +28,14 @@ class OkHttpClientFactory {
                 .followRedirects(false)//重定向
                 .cache(Cache(File(Environment.getDataDirectory(), "okhttp/cache"), 1024))
                 .cookieJar(LocalCookieJar())
-                .addNetworkInterceptor(CniaoInterceptor())
+                .addNetworkInterceptor(CommonHeadersInterceptor())
                 .addNetworkInterceptor(HttpLogInterceptor {
                     logLevel(HttpLogInterceptor.LogLevel.BODY)
                     colorLevel(HttpLogInterceptor.ColorLevel.INFO)
                     logTag("Jarvis")
                 })
                 .addNetworkInterceptor(RetryInterceptor(maxRetry))
+                .sslSocketFactory(sslSocketFactory.sSLSocketFactory, sslSocketFactory.trustManager)
                 .build()
         }
     }

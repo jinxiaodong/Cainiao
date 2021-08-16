@@ -1,6 +1,8 @@
 package com.jarvis.cainiao
 
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LiveData
@@ -78,6 +80,13 @@ class MainActivity : AppCompatActivity() {
 
 
     data class LoginReq(val mobi: String = "18648957777", val password: String = "cn5123456")
+
+    fun click(view: View) {
+        if (view.id == R.id.text_home) {
+            startActivity(Intent(this, TestActivity::class.java))
+        }
+    }
+
 }
 
 

@@ -1,12 +1,7 @@
 package com.jarvis.common.net
 
-import android.os.Environment
 import androidx.collection.SimpleArrayMap
 import com.google.gson.Gson
-import com.jarvis.common.net.config.CniaoInterceptor
-import com.jarvis.common.net.config.LocalCookieJar
-import com.jarvis.common.net.config.HttpLogInterceptor
-import com.jarvis.common.net.config.RetryInterceptor
 import com.jarvis.common.net.support.IHttpCallback
 import com.jarvis.common.net.support.OkHttpClientFactory
 import kotlinx.coroutines.runBlocking
@@ -14,9 +9,7 @@ import kotlinx.coroutines.suspendCancellableCoroutine
 import okhttp3.*
 import okhttp3.HttpUrl.Companion.toHttpUrl
 import okhttp3.RequestBody.Companion.toRequestBody
-import java.io.File
 import java.io.IOException
-import java.util.concurrent.TimeUnit
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
 
