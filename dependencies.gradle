@@ -55,6 +55,11 @@ dependencies {
     //region jetPack libs
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.3.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
+    implementation 'androidx.lifecycle:lifecycle-livedata:2.3.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel:2.3.1'
+    implementation 'androidx.lifecycle:lifecycle-runtime:2.3.1'
+    kapt "androidx.lifecycle:lifecycle-common-java8:2.3.1"
+
 
     implementation "androidx.navigation:navigation-fragment:$navigation_version"
     implementation "androidx.navigation:navigation-fragment-ktx:$navigation_version"
@@ -65,20 +70,42 @@ dependencies {
     implementation 'androidx.room:room-common:2.3.0'
     implementation 'androidx.room:room-ktx:2.3.0'
     kapt "androidx.room:room-compiler:2.3.0"
-    //endregion
 
+    implementation 'androidx.paging:paging-runtime:2.1.2'
+    implementation 'androidx.paging:paging-runtime-ktx:2.1.2'
+    implementation 'androidx.paging:paging-common:2.1.2'
+    implementation 'androidx.paging:paging-common-ktx:2.1.2'
 
-    //region network
-    implementation 'com.squareup.okhttp3:okhttp:4.9.1'
-    implementation 'com.squareup.okhttp3:logging-interceptor:4.8.1'
-    implementation 'com.google.code.gson:gson:2.8.6'
-    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'androidx.work:work-runtime:2.5.0'
+    implementation 'androidx.work:work-runtime-ktx:2.5.0'
     //endregion
 
 
     //region 第三方库
-    implementation 'com.blankj:utilcodex:1.29.0' //各种工具类库
+    // Koin for Kotlin
+    implementation "org.koin:koin-core:$koin_version"
+    implementation "org.koin:koin-core-ext:$koin_version"
+    // Koin for Androidx
+    implementation "org.koin:koin-androidx-scope:$koin_version"
+    implementation "org.koin:koin-androidx-viewmodel:$koin_version"
+    implementation "org.koin:koin-androidx-fragment:$koin_version"
+    implementation "org.koin:koin-androidx-ext:$koin_version"
+    testImplementation "org.koin:koin-test:$koin_version"
+
+    //ARouter
+    implementation 'com.alibaba:arouter-api:1.5.0'
+    kapt 'com.alibaba:arouter-compiler:1.2.2'
+    //liveData eventBus
+    implementation 'com.jeremyliao:live-event-bus-x:1.7.2'
+
     //endregion
 
+
+    //region test libs
+    testImplementation 'junit:junit:4.13'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test:core:1.3.0'
+    androidTestImplementation 'androidx.test:core-ktx:1.3.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    //endregion
 }

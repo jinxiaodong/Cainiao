@@ -1,11 +1,22 @@
-plugins {
-    id 'com.android.library'
+if (singleModule.toBoolean()) {
+    apply plugin: 'com.android.application'
+} else {
+    apply plugin: 'com.android.library'
 }
 apply from: '../dependencies.gradle'
+
 android {
     //form dependencies.gradle
+    defaultConfig {
+        //只有独立运行时候才需要applicationId
+        if (singleModule.toBoolean()) {
+            applicationId "com.jarvis.cainiao.course"
+        }
+    }
 }
 
 dependencies {
     //form dependencies.gradle
+    api project(path: ':common')
+
 }

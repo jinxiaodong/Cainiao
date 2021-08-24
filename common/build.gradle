@@ -9,4 +9,17 @@ android {
 dependencies {
     //form dependencies.gradle
 
+    //region network
+    implementation 'com.squareup.okhttp3:okhttp:4.9.1'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.8.1'
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    //glide
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    kapt 'com.github.bumptech.glide:compiler:4.12.0'
+    //endregion
+    implementation 'com.blankj:utilcodex:1.29.0' //各种工具类库
+    //腾讯的key-value
+    implementation("com.tencent:mmkv-static:1.2.1")
 }
