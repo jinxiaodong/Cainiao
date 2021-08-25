@@ -1,4 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+apply plugin: 'com.alibaba.arouter'
+apply plugin: 'koin'
+apply plugin: 'com.didi.dokit'
 buildscript {
     ext {
         kotlin_version = "1.5.21"
@@ -25,6 +28,12 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navigation_version"
 
+        //koin注入框架
+        classpath "org.koin:koin-gradle-plugin:$koin_version"
+        //阿里 Arouter
+        classpath "com.alibaba:arouter-register:1.0.2"
+        //doraemonKit 调试辅助工具
+        classpath 'com.didichuxing.doraemonkit:doraemonkit-plugin:3.2.0'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }

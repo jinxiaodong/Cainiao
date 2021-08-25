@@ -23,6 +23,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     override fun initView() {
         super.initView()
+        val findNavController = findNavController(R.id.nav_host_fragment)
+        mBinding.navView.setupWithNavController(findNavController)
     }
 
     override fun initData() {

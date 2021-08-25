@@ -21,10 +21,10 @@
         android:id="@+id/study"
         android:name="com.jarvis.study.StudyFragment"
         android:label="@string/str_study"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_study" />
     <fragment
         android:id="@+id/mine"
         android:name="com.jarvis.mine.MineFragment"
         android:label="@string/str_mine"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_mine" />
 </navigation>

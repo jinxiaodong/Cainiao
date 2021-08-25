@@ -1,5 +1,6 @@
 //配置公用的参数
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt' //kotlin 语言使用注入框架，dataBinding都需要这个
 apply plugin: 'androidx.navigation.safeargs.kotlin' //用于navigation 传参的时候一种安全防护
 
