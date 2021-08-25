@@ -15,6 +15,23 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+
+        //Java中的配置 生成schema文件，便于查看数据库创建表的详细信息
+        javaCompileOptions {
+            annotationProcessorOptions {
+                //room 的scheme
+                arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
+                // ARouter的需要配置
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+        //kotlin ARouter 的配置方式
+        kapt {
+            arguments {
+                arg("AROUTER_MODULE_NAME", project.getName())
+                arg("room.schemaLocation": "$projectDir/schemas".toString())
+            }
+        }
     }
 
     buildFeatures {

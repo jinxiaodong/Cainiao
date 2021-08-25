@@ -8,6 +8,8 @@ android {
 
 dependencies {
     //form dependencies.gradle
+    //Androidx Jetpack最新的startUp组件
+    api('androidx.startup:startup-runtime:1.1.0-alpha01')
 
     //region network
     implementation 'com.squareup.okhttp3:okhttp:4.9.1'
@@ -18,6 +20,9 @@ dependencies {
     //glide
     implementation 'com.github.bumptech.glide:glide:4.12.0'
     kapt 'com.github.bumptech.glide:compiler:4.12.0'
+    //coil
+    implementation("io.coil-kt:coil:0.13.0")
+
     //endregion
     implementation 'com.blankj:utilcodex:1.29.0' //各种工具类库
     //腾讯的key-value

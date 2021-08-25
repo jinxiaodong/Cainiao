@@ -3,23 +3,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/home">
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.jarvis.cainiao.ui.home.HomeFragment"
-        android:label="@string/title_home"
+        android:id="@+id/home"
+        android:name="com.jarvis.home.HomeFragment"
+        android:label="@string/str_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.jarvis.cainiao.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/course"
+        android:name="com.jarvis.course.CourseFragment"
+        android:label="@string/str_course"
+        tools:layout="@layout/fragment_course" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.jarvis.cainiao.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
+        android:id="@+id/study"
+        android:name="com.jarvis.study.StudyFragment"
+        android:label="@string/str_study"
+        tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/mine"
+        android:name="com.jarvis.mine.MineFragment"
+        android:label="@string/str_mine"
         tools:layout="@layout/fragment_notifications" />
 </navigation>
