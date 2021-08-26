@@ -4,22 +4,22 @@
 
 
     <item
-        android:id="@+id/homeFragment"
+        android:id="@+id/home"
         android:icon="@drawable/ic_home"
         android:title="@string/str_home"
         app:showAsAction="ifRoom" />
     <item
-        android:id="@+id/courseFragment"
+        android:id="@+id/course"
         android:icon="@drawable/ic_course"
         android:title="@string/str_course"
         app:showAsAction="ifRoom" />
     <item
-        android:id="@+id/studyFragment"
+        android:id="@+id/study"
         android:icon="@drawable/ic_study"
         android:title="@string/str_study"
         app:showAsAction="ifRoom" />
     <item
-        android:id="@+id/mineFragment"
+        android:id="@+id/mine"
         android:icon="@drawable/ic_mine"
         android:title="@string/str_mine"
         app:showAsAction="ifRoom" />
