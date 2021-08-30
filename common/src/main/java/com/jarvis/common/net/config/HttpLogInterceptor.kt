@@ -94,7 +94,7 @@ class HttpLogInterceptor(block: (HttpLogInterceptor.() -> Unit)? = null) : Inter
     private fun logHeadersReq(sb: StringBuilder, request: Request, connection: Connection?) {
         logBasicReq(sb, request, connection)
         val headerString = request.headers.joinToString("") { headers ->
-            "请求 Header:{${headers.first} = ${headers.second}}\n"
+            "请求 Header:{${headers.first}=${headers.second}}\n"
         }
         sb.appendLine(headerString)
     }

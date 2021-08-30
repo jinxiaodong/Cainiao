@@ -36,7 +36,7 @@ class CommonHeadersInterceptor : Interceptor {
 
         val attachHeaders = mutableListOf<Pair<String, String>>(
             "appid" to NET_CONFIG_APPID,
-            "platform" to "yapi", //如果重复请求，可能会报重复签名错误，yapi 平台标记则不会
+            "platform" to "android", //如果重复请求，可能会报重复签名错误，yapi 平台标记则不会
             "timestamp" to System.currentTimeMillis().toString(),
 
             "brand" to DeviceUtils.getManufacturer(),
@@ -48,7 +48,7 @@ class CommonHeadersInterceptor : Interceptor {
             "version" to AppUtils.getAppVersionName()
         )
 
-        val tokenStr = ""
+        val tokenStr = "ss"
         val localToken = SPStaticUtils.getString(SP_KEY_USER_TOKEN, tokenStr)
 
         if (localToken.isNotEmpty()) {
@@ -91,7 +91,7 @@ class CommonHeadersInterceptor : Interceptor {
         //todo 算法：都必须是非空参数！！！  sign = MD5（ascii排序后的 headers及params的key=value拼接&后，最后拼接appkey和value）//32位的大写,
         val singValue = signHeaders
             .sortedBy { it.first }
-            .joinToString("&") { "${it.first} = ${it.second}" }
+            .joinToString("&") { "${it.first}=${it.second}" }
             .plus("&appkey=$NET_CONFIG_APPKEY")
 
         val newBuilder = originalRequest.newBuilder()

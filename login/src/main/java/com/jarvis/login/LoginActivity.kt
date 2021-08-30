@@ -1,8 +1,10 @@
 package com.jarvis.login
 
-import androidx.activity.viewModels
+import com.blankj.utilcode.util.ToastUtils
 import com.jarvis.common.base.BaseActivity
 import com.jarvis.login.databinding.ActivityLoginBinding
+import com.jarvis.login.net.RegisterRsp
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
  * @author jinxiaodong
@@ -12,13 +14,23 @@ import com.jarvis.login.databinding.ActivityLoginBinding
 class LoginActivity : BaseActivity<ActivityLoginBinding>() {
 
 
-    private val viewModel: LoginViewModel by viewModels { defaultViewModelProviderFactory }
+    private val viewModel: LoginViewModel by viewModel()
 
     override fun getLayoutRes() = R.layout.activity_login
 
 
     override fun initConfig() {
         super.initConfig()
+        viewModel.apply {
+            liveRegisterRsp.observerKt {
+                if (it?.is_register == RegisterRsp.FLAG_IS_REGISTERED) {
+                    repoLogin()
+                }
+            }
+            liveLoginRsp.observerKt {
+                ToastUtils.showShort("登录结果" + it.toString())
+            }
+        }
     }
 
 
@@ -26,6 +38,8 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
         super.initView()
         mBinding.apply {
             vm = viewModel
+            toolbarLogin.setNavigationOnClickListener { finish() }
+            tvRegisterLogin.setOnClickListener { ToastUtils.showShort("当前课程项目未实现注册账号功能!") }
         }
     }
 
