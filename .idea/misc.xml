@@ -15,7 +15,11 @@
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.4078125" />
         <entry key="course/src/main/res/layout/fragment_course.xml" value="0.1" />
         <entry key="home/src/main/res/layout/fragment_home.xml" value="0.2033096926713948" />
+        <entry key="login/src/main/res/drawable/ic_qq.xml" value="0.4078125" />
+        <entry key="login/src/main/res/drawable/ic_wechat.xml" value="0.4078125" />
+        <entry key="login/src/main/res/layout/activity_login.xml" value="0.39166666666666666" />
         <entry key="mine/src/main/res/layout/fragment_mine.xml" value="0.2033096926713948" />
+        <entry key="service/src/main/res/drawable/ic_back.xml" value="0.4078125" />
         <entry key="service/src/main/res/drawable/icon_account.xml" value="0.4078125" />
         <entry key="study/src/main/res/layout/fragment_study.xml" value="0.2033096926713948" />
       </map>

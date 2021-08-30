@@ -10,13 +10,12 @@ android {
     defaultConfig {
         //只有独立运行时候才需要applicationId
         if (singleModule.toBoolean()) {
-            applicationId "com.jarvis.cainiao.home"
+            applicationId "com.jarvis.cainiao.login"
         }
     }
 }
 
 dependencies {
     //form dependencies.gradle
-    api project(path: ':common')
-
+    implementation project(path: ':service')
 }
