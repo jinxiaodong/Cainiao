@@ -12,5 +12,7 @@
 
 
     <color name="colorTitleBlack">#333333</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorBlack">#000000</color>
 
 </resources>
