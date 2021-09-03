@@ -14,7 +14,7 @@ buildscript {
         version_code = 1
         version_name = "1.0.0"
         navigation_version = "2.3.0"
-        koin_version = '2.1.6'//依赖注入框架
+        koin_version = '2.2.0-rc-3'//依赖注入框架
 
     }
     repositories {
