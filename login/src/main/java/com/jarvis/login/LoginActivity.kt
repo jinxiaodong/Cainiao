@@ -17,7 +17,6 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 @Route(path = "/login/loginActivity")
 class LoginActivity : BaseActivity<ActivityLoginBinding>() {
 
-
     private val viewModel: LoginViewModel by viewModel()
 
     override fun getLayoutRes() = R.layout.activity_login
