@@ -12,6 +12,9 @@ import com.jarvis.service.network.onBizError
 import com.jarvis.service.network.onBizOK
 import com.jarvis.service.network.onFailure
 import com.jarvis.service.network.onSuccess
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 /**
  * @author jinxiaodong

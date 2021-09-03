@@ -1,9 +1,12 @@
 package com.jarvis.login
 
+import com.alibaba.android.arouter.facade.annotation.Route
 import com.blankj.utilcode.util.ToastUtils
 import com.jarvis.common.base.BaseActivity
+import com.jarvis.common.ktx.context
 import com.jarvis.login.databinding.ActivityLoginBinding
 import com.jarvis.login.net.RegisterRsp
+import com.jarvis.service.repo.CniaoDbHelper
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
@@ -11,6 +14,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
  * @description：登录界面
  * @date 2021/8/26
  */
+@Route(path = "/login/loginActivity")
 class LoginActivity : BaseActivity<ActivityLoginBinding>() {
 
 
@@ -29,6 +33,10 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
             }
             liveLoginRsp.observerKt {
                 ToastUtils.showShort("登录结果" + it.toString())
+                it?.let {
+                    CniaoDbHelper.insertUserInfo(context, it)
+                }
+                finish()
             }
         }
     }
@@ -46,5 +54,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
 
     override fun initData() {
         super.initData()
+        viewModel.obMobile.set("18895612587")
+        viewModel.obPassword.set("qwerasdf123")
     }
 }
