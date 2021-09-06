@@ -30,19 +30,20 @@ class MineFragment : BaseFragment() {
 
             btnLogoutMine.setOnClickListener {
                 CniaoDbHelper.deleteUserInfo(requireContext())
-                ARouter.getInstance().build("/login/loginActivity").navigation()
+                ARouter.getInstance().build("/login/login").navigation()
             }
 
             //跳转userInfoFragment
             ivUserIconMine.setOnClickListener {
                 val info = viewModel.liveInfo.value
-                info?.let {
-                    info.company = "学生"
+                if (info == null) {
+                    ARouter.getInstance().build("/login/login").navigation()
+                } else {
+                    info.company = "测试"
                     val action =
                         MineFragmentDirections.actionMineFragmentToUserInfoFragment(info)
                     findNavController().navigate(action)
                 }
-
             }
         }
     }

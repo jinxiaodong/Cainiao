@@ -25,10 +25,8 @@ class UserInfoFragment : BaseFragment() {
 
     override fun bindView(view: View, savedInstanceState: Bundle?): ViewDataBinding {
         return FragmentUserInfoBinding.bind(view).apply {
-
             //toolbar返回
             toolbarUserInfo.setNavigationOnClickListener { findNavController().navigateUp() }
-            toolbarUserInfo.navigationIcon?.setTint(Color.WHITE)
             // save 返回
             btnSaveUserInfo.setOnClickListener { findNavController().navigateUp() }
             info = args.userInfo

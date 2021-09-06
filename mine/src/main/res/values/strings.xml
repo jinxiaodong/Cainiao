@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="str_module_mine">我的模块</string>
+    <string name="str_login_or_register">登录/免费注册</string>
+
+</resources>

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:tools="http://schemas.android.com/tools">
     <data>
+        <import type="android.view.View" />
+
         <variable
             name="vm"
             type="com.jarvis.mine.ui.MineViewModel" />
@@ -38,7 +40,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="15dp"
-                android:text="@{vm.liveInfo.username??``}"
+                android:text="@{vm.liveInfo.username??@string/str_login_or_register}"
                 android:textColor="@color/colorBlack"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -160,6 +162,7 @@
                 android:text="退出登录"
                 android:textColor="@color/colorSecondaryText"
                 android:textSize="16sp"
+                android:visibility="@{vm.liveInfo.username.length()>0? View.VISIBLE:View.GONE}"
                 app:backgroundTint="@color/colorWhite"
                 app:cornerRadius="20dp"
                 app:elevation="0.1dp"

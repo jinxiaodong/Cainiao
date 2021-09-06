@@ -4,6 +4,7 @@ import com.blankj.utilcode.util.*
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import com.google.gson.reflect.TypeToken
+import com.jarvis.common.utils.CniaoSpUtils
 import okhttp3.CacheControl
 import okhttp3.FormBody
 import okhttp3.Interceptor
@@ -48,13 +49,11 @@ class CommonHeadersInterceptor : Interceptor {
             "version" to AppUtils.getAppVersionName()
         )
 
-        val tokenStr = "ss"
-        val localToken = SPStaticUtils.getString(SP_KEY_USER_TOKEN, tokenStr)
-
+        val localToken =
+            CniaoSpUtils.getString(SP_KEY_USER_TOKEN, originalRequest.header("token")) ?: ""
         if (localToken.isNotEmpty()) {
             attachHeaders.add("token" to localToken)
         }
-
         //请求参数签名计算
         val signHeaders = mutableListOf<Pair<String, String>>()
         signHeaders.addAll(attachHeaders)

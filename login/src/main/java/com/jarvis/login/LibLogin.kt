@@ -1,6 +1,7 @@
 package com.jarvis.login
 
 import com.jarvis.common.net.RetrofitManager
+import com.jarvis.common.utils.getBaseHost
 import com.jarvis.login.net.LoginService
 import com.jarvis.login.repo.ILoginResource
 import com.jarvis.login.repo.LoginRepo
@@ -18,7 +19,7 @@ val moduleLogin = module {
 
     //service retrofit
     single {
-        RetrofitManager.initConfig("https://course.api.cniao5.com/")
+        RetrofitManager.initConfig(getBaseHost())
             .getService(LoginService::class.java)
     }
 

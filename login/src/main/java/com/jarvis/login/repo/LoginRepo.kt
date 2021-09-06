@@ -62,7 +62,6 @@ class LoginRepo(private val service: LoginService) : ILoginResource {
                 }
                 onBizOK<LoginRsp> { code, data, message ->
                     _loginRsp.value = data
-                    SPStaticUtils.put(SP_KEY_USER_TOKEN,data?.token)
                     LogUtils.i("登录接口 BizOK $data")
                 }
             }.onFailure {

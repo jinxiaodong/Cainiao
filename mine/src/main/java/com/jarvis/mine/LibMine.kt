@@ -1,6 +1,7 @@
 package com.jarvis.mine
 
 import com.jarvis.common.net.RetrofitManager
+import com.jarvis.common.utils.getBaseHost
 import com.jarvis.mine.net.MineService
 import com.jarvis.mine.repo.IMineResource
 import com.jarvis.mine.repo.MineRepo
@@ -18,7 +19,7 @@ import org.koin.dsl.module
 val moduleMine = module {
 
     single {
-        RetrofitManager.initConfig("https://course.api.cniao5.com/")
+        RetrofitManager.initConfig(getBaseHost())
             .getService(MineService::class.java)
     }
 

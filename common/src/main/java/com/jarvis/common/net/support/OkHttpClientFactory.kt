@@ -28,6 +28,7 @@ class OkHttpClientFactory {
                 .followRedirects(false)//重定向
                 .cache(Cache(File(Environment.getDataDirectory(), "okhttp/cache"), 1024))
                 .cookieJar(LocalCookieJar())
+                .addInterceptor(HostInterceptor())
                 .addNetworkInterceptor(CommonHeadersInterceptor())
                 .addNetworkInterceptor(HttpLogInterceptor {
                     logLevel(HttpLogInterceptor.LogLevel.BODY)

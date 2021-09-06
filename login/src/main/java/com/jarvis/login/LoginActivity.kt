@@ -1,9 +1,12 @@
 package com.jarvis.login
 
 import com.alibaba.android.arouter.facade.annotation.Route
+import com.blankj.utilcode.util.SPStaticUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.jarvis.common.base.BaseActivity
 import com.jarvis.common.ktx.context
+import com.jarvis.common.net.config.SP_KEY_USER_TOKEN
+import com.jarvis.common.utils.CniaoSpUtils
 import com.jarvis.login.databinding.ActivityLoginBinding
 import com.jarvis.login.net.RegisterRsp
 import com.jarvis.service.repo.CniaoDbHelper
@@ -33,6 +36,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
             liveLoginRsp.observerKt {
                 ToastUtils.showShort("登录结果" + it.toString())
                 it?.let {
+                    CniaoSpUtils.put(SP_KEY_USER_TOKEN, it.token)
                     CniaoDbHelper.insertUserInfo(context, it)
                 }
                 finish()

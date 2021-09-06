@@ -41,21 +41,21 @@ abstract class BaseActivity<dataBindType : ViewDataBinding> : AppCompatActivity 
      * view初始化后的必要配置
      */
     open fun initConfig() {
-        LogUtils.d("${this.javaClass.simpleName} 初始化 initConfig")
+//        LogUtils.d("${this.javaClass.simpleName} 初始化 initConfig")
     }
 
     /**
      * view初始化后的必要配置
      */
     open fun initView() {
-        LogUtils.d("${this.javaClass.simpleName} 初始化 initConfig")
+//        LogUtils.d("${this.javaClass.simpleName} 初始化 initConfig")
     }
 
     /**
      * view初始化后的必要数据
      */
     open fun initData() {
-        LogUtils.d("${this.javaClass.simpleName} 初始化 initData")
+//        LogUtils.d("${this.javaClass.simpleName} 初始化 initData")
     }
 
 
