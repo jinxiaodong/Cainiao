@@ -2,7 +2,10 @@ package com.jarvis.login.repo
 
 import androidx.lifecycle.LiveData
 import com.blankj.utilcode.util.LogUtils
+import com.blankj.utilcode.util.SPStaticUtils
+import com.blankj.utilcode.util.SpanUtils
 import com.jarvis.common.model.SingleLiveData
+import com.jarvis.common.net.config.SP_KEY_USER_TOKEN
 import com.jarvis.common.net.support.serverData
 import com.jarvis.login.net.LoginReqBody
 import com.jarvis.login.net.LoginRsp
@@ -59,6 +62,7 @@ class LoginRepo(private val service: LoginService) : ILoginResource {
                 }
                 onBizOK<LoginRsp> { code, data, message ->
                     _loginRsp.value = data
+                    SPStaticUtils.put(SP_KEY_USER_TOKEN,data?.token)
                     LogUtils.i("登录接口 BizOK $data")
                 }
             }.onFailure {

@@ -5,8 +5,8 @@
     <data>
 
         <variable
-            name="vm"
-            type="com.jarvis.mine.ui.MineViewModel" />
+            name="info"
+            type="com.jarvis.mine.net.UserInfoRsp" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -52,7 +52,7 @@
             app:layout_constraintTop_toTopOf="@id/v_bg_user_info"
             app:layout_constraintVertical_bias="0.4"
             app:shapeAppearanceOverlay="@style/circleImageStyle"
-            app:srcCompat="@{vm.liveInfo.logo_url}" />
+            app:srcCompat="@{info.logo_url}" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_edit_icon_user_info"
@@ -93,7 +93,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"
-                    android:text="@{vm.liveInfo.username??`NameOfNull`}"
+                    android:text="@{info.username??`NameOfNull`}"
                     android:textColor="@color/colorSecondaryText"
                     app:layout_constraintBaseline_toBaselineOf="@id/tv_pre_uname_user_info"
                     app:layout_constraintStart_toEndOf="@id/tv_pre_uname_user_info"
@@ -122,7 +122,7 @@
                     android:id="@+id/tv_company_user_info"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{vm.liveInfo.company??`ComOfNull`}"
+                    android:text="@{info.company??`ComOfNull`}"
                     android:textColor="@color/colorSecondaryText"
                     app:layout_constraintBaseline_toBaselineOf="@id/tv_pre_company_user_info"
                     app:layout_constraintStart_toStartOf="@id/tv_uname_user_info"
@@ -151,7 +151,7 @@
                     android:id="@+id/tv_position_user_info"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{vm.liveInfo.job??`JobOfNull`}"
+                    android:text="@{info.job??`JobOfNull`}"
                     android:textColor="@color/colorSecondaryText"
                     app:layout_constraintBaseline_toBaselineOf="@id/tv_pre_position_user_info"
                     app:layout_constraintStart_toStartOf="@id/tv_uname_user_info"
@@ -180,7 +180,7 @@
                     android:id="@+id/tv_experience_user_info"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{vm.liveInfo.work_years??`workYearNull`}"
+                    android:text="@{info.work_years??`workYearNull`}"
                     android:textColor="@color/colorSecondaryText"
                     app:layout_constraintBaseline_toBaselineOf="@id/tv_pre_experience_user_info"
                     app:layout_constraintStart_toStartOf="@id/tv_uname_user_info"
@@ -210,7 +210,7 @@
                     android:id="@+id/tv_description_user_info"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@{vm.liveInfo.desc??`DescNull`}"
+                    android:text="@{info.desc??`DescNull`}"
                     android:textColor="@color/colorSecondaryText"
                     app:layout_constraintBaseline_toBaselineOf="@id/tv_pre_description_user_info"
                     app:layout_constraintStart_toStartOf="@id/tv_uname_user_info"

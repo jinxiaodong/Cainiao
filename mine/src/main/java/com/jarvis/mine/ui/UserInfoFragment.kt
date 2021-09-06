@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.databinding.ViewDataBinding
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.jarvis.common.base.BaseFragment
 import com.jarvis.mine.R
 import com.jarvis.mine.databinding.FragmentUserInfoBinding
@@ -18,28 +19,21 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
  */
 class UserInfoFragment : BaseFragment() {
 
-    private val viewModel: MineViewModel by viewModel()
-
+    private val args: UserInfoFragmentArgs by navArgs()
 
     override fun getLayoutRes() = R.layout.fragment_user_info
 
     override fun bindView(view: View, savedInstanceState: Bundle?): ViewDataBinding {
         return FragmentUserInfoBinding.bind(view).apply {
 
-            vm = viewModel
             //toolbar返回
             toolbarUserInfo.setNavigationOnClickListener { findNavController().navigateUp() }
             toolbarUserInfo.navigationIcon?.setTint(Color.WHITE)
             // save 返回
             btnSaveUserInfo.setOnClickListener { findNavController().navigateUp() }
-
+            info = args.userInfo
         }
     }
 
-    override fun initData() {
-        super.initData()
-        CniaoDbHelper.getLiveUserInfo(requireContext()).observerKt {
-            //获取用户的userInfo的接口数据
-        }
-    }
+
 }

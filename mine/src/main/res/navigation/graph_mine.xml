@@ -13,10 +13,15 @@
         <action
             android:id="@+id/action_mineFragment_to_userInfoFragment"
             app:destination="@id/userInfoFragment" />
+
     </fragment>
     <fragment
         android:id="@+id/userInfoFragment"
         android:name="com.jarvis.mine.ui.UserInfoFragment"
         android:label="UserInfoFragment"
-        tools:layout="@layout/fragment_user_info" />
+        tools:layout="@layout/fragment_user_info">
+        <argument
+            android:name="userInfo"
+            app:argType="com.jarvis.mine.net.UserInfoRsp" />
+    </fragment>
 </navigation>
