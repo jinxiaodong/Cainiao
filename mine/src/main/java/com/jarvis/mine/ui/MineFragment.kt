@@ -1,12 +1,13 @@
-package com.jarvis.mine
+package com.jarvis.mine.ui
 
 import android.os.Bundle
 import android.view.View
 import androidx.databinding.ViewDataBinding
+import androidx.navigation.fragment.findNavController
 import com.alibaba.android.arouter.launcher.ARouter
 import com.jarvis.common.base.BaseFragment
+import com.jarvis.mine.R
 import com.jarvis.mine.databinding.FragmentMineBinding
-import com.jarvis.mine.ui.MineViewModel
 import com.jarvis.service.repo.CniaoDbHelper
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -32,6 +33,11 @@ class MineFragment : BaseFragment() {
                 ARouter.getInstance().build("/login/loginActivity").navigation()
             }
 
+            //跳转userInfoFragment
+            ivUserIconMine.setOnClickListener {
+                val action = MineFragmentDirections.actionMineFragmentToUserInfoFragment()
+                findNavController().navigate(action)
+            }
         }
     }
 

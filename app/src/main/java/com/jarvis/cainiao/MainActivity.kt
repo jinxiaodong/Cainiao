@@ -1,24 +1,15 @@
 package com.jarvis.cainiao
 
-import android.content.Intent
-import android.os.Bundle
-import android.view.View
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import androidx.viewpager2.widget.ViewPager2
 import com.jarvis.cainiao.databinding.ActivityMainBinding
 import com.jarvis.common.base.BaseActivity
 import com.jarvis.common.widget.BnvMediator
 import com.jarvis.course.CourseFragment
 import com.jarvis.home.HomeFragment
-import com.jarvis.mine.MineFragment
+import com.jarvis.mine.MineContainerFragment
+import com.jarvis.mine.ui.MineFragment
 import com.jarvis.study.StudyFragment
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
@@ -38,7 +29,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         INDEX_HOME to HomeFragment(),
         INDEX_COURSE to CourseFragment(),
         INDEX_STUDY to StudyFragment(),
-        INDEX_MINE to MineFragment()
+        INDEX_MINE to MineContainerFragment()
     )
 
     override fun initConfig() {
