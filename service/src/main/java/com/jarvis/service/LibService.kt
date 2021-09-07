@@ -1,5 +1,6 @@
 package com.jarvis.service
 
+import com.jarvis.common.net.RetrofitManager
 import org.koin.dsl.module
 
 /**
@@ -9,4 +10,5 @@ import org.koin.dsl.module
  */
 val moduleService = module {
 
+    single<RetrofitManager> { (host: String) -> RetrofitManager.initConfig(host) }
 }

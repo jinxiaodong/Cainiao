@@ -6,6 +6,7 @@ import com.jarvis.login.net.LoginService
 import com.jarvis.login.repo.ILoginResource
 import com.jarvis.login.repo.LoginRepo
 import org.koin.androidx.viewmodel.dsl.viewModel
+import org.koin.core.parameter.parametersOf
 import org.koin.dsl.bind
 import org.koin.dsl.module
 
@@ -19,8 +20,7 @@ val moduleLogin = module {
 
     //service retrofit
     single {
-        RetrofitManager.initConfig(getBaseHost())
-            .getService(LoginService::class.java)
+        get<RetrofitManager> { parametersOf(getBaseHost()) }.getService(LoginService::class.java)
     }
 
     //repo LoginResource

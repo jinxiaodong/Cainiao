@@ -7,6 +7,7 @@ import com.jarvis.mine.repo.IMineResource
 import com.jarvis.mine.repo.MineRepo
 import com.jarvis.mine.ui.MineViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
+import org.koin.core.parameter.parametersOf
 import org.koin.dsl.bind
 import org.koin.dsl.module
 
@@ -19,8 +20,7 @@ import org.koin.dsl.module
 val moduleMine = module {
 
     single {
-        RetrofitManager.initConfig(getBaseHost())
-            .getService(MineService::class.java)
+        get<RetrofitManager> { parametersOf(getBaseHost()) }.getService(MineService::class.java)
     }
 
     single { MineRepo(get()) } bind IMineResource::class
