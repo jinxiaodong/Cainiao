@@ -15,6 +15,15 @@ object StudyUtils {
         return if (rank > 0) "第${rank}名" else "千里之外"
     }
 
+    @JvmStatic
+    fun parseImage(url: String): String {
+        return if (url.startsWith("https://")) {
+            url
+        } else {
+            "https:$url"
+        }
+    }
+
 }
 
 @BindingAdapter("app:progress_current", requireAll = false)

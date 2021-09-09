@@ -3,6 +3,7 @@ package com.jarvis.service.utils
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
+import com.blankj.utilcode.util.LogUtils
 import com.bumptech.glide.Glide
 import com.jarvis.service.R
 
@@ -16,9 +17,7 @@ import com.jarvis.service.R
  */
 @BindingAdapter("app:srcCompat", requireAll = false)
 fun imgSrc(iv: ImageView, src: Any?) {
-
     val imgRes = src ?: R.drawable.icon_default_header
-
     Glide.with(iv)
         .load(imgRes)
         .into(iv)

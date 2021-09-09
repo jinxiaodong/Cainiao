@@ -3,6 +3,8 @@
 
     <data>
 
+        <import type="com.jarvis.study.utils.StudyUtils" />
+
         <variable
             name="info"
             type="com.jarvis.study.net.StudiedRsp.Data" />
@@ -30,7 +32,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@{info.img_url}"
+                app:srcCompat="@{StudyUtils.parseImage(info.img_url)}"
                 tools:srcCompat="@drawable/img_course" />
 
             <androidx.appcompat.widget.AppCompatTextView
@@ -57,9 +59,9 @@
                 app:layout_constraintStart_toStartOf="@id/tv_title_item_study"
                 app:layout_constraintTop_toBottomOf="@id/tv_title_item_study"
                 app:progress_current="@{info.progress}"
-                tools:progress_current="14"
                 app:progress_max="100"
-                app:progress_reached_color="@color/colorAccent" />
+                app:progress_reached_color="@color/colorAccent"
+                tools:progress_current="14" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
