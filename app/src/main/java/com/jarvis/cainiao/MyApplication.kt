@@ -7,6 +7,7 @@ import com.jarvis.login.moduleLogin
 import com.jarvis.mine.moduleMine
 import com.jarvis.service.assistant.AssistantApp
 import com.jarvis.service.moduleService
+import com.jarvis.study.moduleStudy
 import org.koin.core.context.loadKoinModules
 import org.koin.core.module.Module
 
@@ -18,7 +19,7 @@ import org.koin.core.module.Module
 class MyApplication : BaseApplication() {
 
 
-    private val modules = arrayListOf<Module>(moduleService, moduleLogin, moduleMine)
+    private val modules = arrayListOf<Module>(moduleService, moduleLogin, moduleMine, moduleStudy)
     override fun initConfig() {
         super.initConfig()
 

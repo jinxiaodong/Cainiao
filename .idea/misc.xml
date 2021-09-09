@@ -31,7 +31,10 @@
         <entry key="service/src/main/res/drawable/ic_right.xml" value="0.38769230769230767" />
         <entry key="service/src/main/res/drawable/icon_account.xml" value="0.4078125" />
         <entry key="service/src/main/res/drawable/icon_default_header.xml" value="0.4078125" />
+        <entry key="service/src/main/res/drawable/shape_white_card_bg.xml" value="0.20925925925925926" />
+        <entry key="study/src/main/res/layout/footer_load_state.xml" value="0.35555555555555557" />
         <entry key="study/src/main/res/layout/fragment_study.xml" value="0.2033096926713948" />
+        <entry key="study/src/main/res/layout/item_course_study.xml" value="0.1" />
       </map>
     </option>
   </component>
