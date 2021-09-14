@@ -20,12 +20,4 @@ object CourseUtils {
         return if (info?.is_free == 1) "免费" else "￥${info?.now_price}"
     }
 
-    @JvmStatic
-    fun parseImage(url: String): String {
-        return if (url.startsWith("https://")) {
-            url
-        } else {
-            "https:$url"
-        }
-    }
 }

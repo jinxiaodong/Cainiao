@@ -32,7 +32,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@{StudyUtils.parseImage(info.img_url)}"
+                app:srcCompat="@{info.img_url}"
                 tools:srcCompat="@drawable/img_course" />
 
             <androidx.appcompat.widget.AppCompatTextView

@@ -9,19 +9,9 @@ import com.daimajia.numberprogressbar.NumberProgressBar
  * @date 2021/9/8
  */
 object StudyUtils {
-
     @JvmStatic
     fun rankStr(rank: Int): String {
         return if (rank > 0) "第${rank}名" else "千里之外"
-    }
-
-    @JvmStatic
-    fun parseImage(url: String): String {
-        return if (url.startsWith("https://")) {
-            url
-        } else {
-            "https:$url"
-        }
     }
 
 }

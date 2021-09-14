@@ -17,7 +17,16 @@ import com.jarvis.service.R
  */
 @BindingAdapter("app:srcCompat", requireAll = false)
 fun imgSrc(iv: ImageView, src: Any?) {
-    val imgRes = src ?: R.drawable.icon_default_header
+    val imgRes = when (src) {
+        is String -> {
+            when {
+                src.startsWith("//img.cniao5.com") -> "https:$src"
+                src.startsWith("/img.cniao5.com") -> "https:/$src"
+                else -> src
+            }
+        }
+        else -> src ?: R.drawable.icon_default_header
+    }
     Glide.with(iv)
         .load(imgRes)
         .into(iv)
@@ -48,3 +57,5 @@ fun tvColor(tv: TextView, color: Int) {
         tv.setTextColor(color)
     }
 }
+
+

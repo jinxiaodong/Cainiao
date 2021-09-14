@@ -1,6 +1,7 @@
 package com.jarvis.study.repo.data
 
 import androidx.paging.PagingSource
+import androidx.paging.PagingState
 import com.blankj.utilcode.util.LogUtils
 import com.jarvis.common.net.support.serverData
 import com.jarvis.service.network.onBizError
@@ -55,6 +56,17 @@ class StudiedItemPagingSource(private val service: StudyService) :
         return result
     }
 
+    override fun getRefreshKey(state: PagingState<Int, StudiedRsp.Data>): Int? {
+        return state.anchorPosition?.let { anchorPosition ->
+            // This loads starting from previous page, but since PagingConfig.initialLoadSize spans
+            // multiple pages, the initial load will still load items centered around
+            // anchorPosition. This also prevents needing to immediately launch prepend due to
+            // prefetchDistance.
+            state.closestPageToPosition(anchorPosition)?.prevKey
+        }
+    }
+
+
 }
 
 
@@ -92,5 +104,15 @@ class BoughtItemPagingSource(private val service: StudyService) :
                 result = LoadResult.Error(it)
             }
         return result
+    }
+
+    override fun getRefreshKey(state: PagingState<Int, BoughtRsp.Data>): Int? {
+        return state.anchorPosition?.let { anchorPosition ->
+            // This loads starting from previous page, but since PagingConfig.initialLoadSize spans
+            // multiple pages, the initial load will still load items centered around
+            // anchorPosition. This also prevents needing to immediately launch prepend due to
+            // prefetchDistance.
+            state.closestPageToPosition(anchorPosition)?.prevKey
+        }
     }
 }

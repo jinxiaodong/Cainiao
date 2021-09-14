@@ -57,8 +57,9 @@ inline fun <reified T> BaseCniaoRsp.toEntity(): T? {
         return null
     }
     //gson不允许我们将json对象采用String,所以单独处理
+    val decodeData = CniaoUtils.decodeData(this.data);
     if (T::class.java.isAssignableFrom(String::class.java)) {
-        return CniaoUtils.decodeData(this.data) as T
+        return decodeData as T
     }
     return kotlin.runCatching {
         GsonUtils.fromJson(CniaoUtils.decodeData(this.data), T::class.java)
