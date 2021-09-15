@@ -60,7 +60,7 @@ class CourseVH(private val binding: ItemCourseBinding) : RecyclerView.ViewHolder
 
     fun bind(info: CourseListRsp.Data) {
         binding.info = info
-//        binding.tvOldPriceItemCourse.paint.flags += Paint.STRIKE_THRU_TEXT_FLAG
+        binding.tvOldPriceItemCourse.paint.flags += Paint.STRIKE_THRU_TEXT_FLAG
         binding.executePendingBindings()
     }
 

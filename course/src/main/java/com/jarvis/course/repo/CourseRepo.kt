@@ -52,7 +52,13 @@ class CourseRepo(private val service: CourseService) : ICourseResource {
 
     }
 
-    override suspend fun getTypeCourseList(): Flow<PagingData<CourseListRsp.Data>> {
+    override suspend fun getTypeCourseList(
+        course_type: Int,
+        code: String,
+        difficulty: Int,
+        is_free: Int,
+        q: Int
+    ): Flow<PagingData<CourseListRsp.Data>> {
         val config =
             PagingConfig(
                 pageSize = pageSize,
@@ -64,7 +70,7 @@ class CourseRepo(private val service: CourseService) : ICourseResource {
         return Pager(config = config, null) {
             CoursePagingSource(service)
         }.flow
-
     }
+
 
 }

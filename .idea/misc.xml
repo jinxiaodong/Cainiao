@@ -13,9 +13,13 @@
         <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.38564102564102565" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.39166666666666666" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.4078125" />
+        <entry key="course/src/main/res/drawable/ic_check.xml" value="0.12407407407407407" />
+        <entry key="course/src/main/res/drawable/ic_drop_down.xml" value="0.12407407407407407" />
         <entry key="course/src/main/res/drawable/ic_mine_small.xml" value="0.14444444444444443" />
         <entry key="course/src/main/res/layout/fragment_course.xml" value="0.1" />
         <entry key="course/src/main/res/layout/item_course.xml" value="0.39166666666666666" />
+        <entry key="course/src/main/res/layout/item_footer_course.xml" value="0.1" />
+        <entry key="course/src/main/res/layout/pop_course_type.xml" value="0.15925925925925927" />
         <entry key="home/src/main/res/layout/fragment_home.xml" value="0.2033096926713948" />
         <entry key="login/src/main/res/drawable/ic_qq.xml" value="0.4078125" />
         <entry key="login/src/main/res/drawable/ic_wechat.xml" value="0.4078125" />
