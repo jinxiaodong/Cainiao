@@ -4,6 +4,7 @@ import com.alibaba.android.arouter.launcher.ARouter
 import com.jarvis.common.BaseApplication
 import com.jarvis.common.ktx.application
 import com.jarvis.course.utils.moduleCourse
+import com.jarvis.home.moduleHome
 import com.jarvis.login.moduleLogin
 import com.jarvis.mine.moduleMine
 import com.jarvis.service.assistant.AssistantApp
@@ -20,7 +21,15 @@ import org.koin.core.module.Module
 class MyApplication : BaseApplication() {
 
 
-    private val modules = arrayListOf<Module>(moduleService, moduleLogin, moduleMine,moduleCourse, moduleStudy)
+    private val modules = arrayListOf<Module>(
+        moduleService,
+        moduleHome,
+        moduleLogin,
+        moduleMine,
+        moduleCourse,
+        moduleStudy
+    )
+
     override fun initConfig() {
         super.initConfig()
 

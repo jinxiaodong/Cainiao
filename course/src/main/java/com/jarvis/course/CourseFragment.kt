@@ -19,6 +19,7 @@ import com.jarvis.course.ui.CourseAdapter
 import com.jarvis.course.ui.CourseLoadAdapter
 import com.jarvis.course.ui.CourseViewModel
 import kotlinx.android.synthetic.main.fragment_course.*
+import kotlinx.coroutines.flow.collectLatest
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
@@ -71,10 +72,10 @@ class CourseFragment : BaseFragment() {
                     val index = tab?.position ?: 0
                     val selCode = if (index > 0) types[index - 1].code ?: "all" else "all"
                     lifecycleScope.launchWhenCreated {
-                        typedCourseList(code = selCode).observerKt { data ->
-                            data?.let {
-                                adapter.submitData(lifecycle, data)
-                            }
+                        typedCourseList(code = selCode).collectLatest { data ->
+                            adapter.submitData(lifecycle, data)
+                            LogUtils.i("tab个数:11")
+
                         }
                     }
                     LogUtils.i("tab个数 ${tl_category_course.tabCount} types size ${types.size}")

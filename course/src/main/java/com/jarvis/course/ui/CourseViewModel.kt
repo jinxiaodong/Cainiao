@@ -31,6 +31,5 @@ class CourseViewModel(private val repo: ICourseResource) : BaseViewModel() {
         is_free: Int = -1,//价格 (-1, 全部) （0 付费） (1 免费) 默认 -1
         q: Int = -1,//排序  (-1 最新) (1 评价最高)  (2 学习最多) 默认 -1
     ) = repo.getTypeCourseList(course_type, code, difficulty, is_free, q)
-        .asLiveData(viewModelScope.coroutineContext)
-        .cachedIn(viewModelScope)
+
 }

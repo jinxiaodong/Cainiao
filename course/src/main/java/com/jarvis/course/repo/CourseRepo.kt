@@ -68,7 +68,7 @@ class CourseRepo(private val service: CourseService) : ICourseResource {
             )
 
         return Pager(config = config, null) {
-            CoursePagingSource(service)
+            CoursePagingSource(service,course_type, code, difficulty, is_free, q)
         }.flow
     }
 

@@ -17,6 +17,9 @@ android {
 
 dependencies {
     //form dependencies.gradle
-    api project(path: ':common')
+    implementation project(path: ':service')
+
+    implementation 'com.youth.banner:banner:2.1.0'
+
 
 }
