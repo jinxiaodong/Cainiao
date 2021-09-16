@@ -27,4 +27,7 @@ dependencies {
     api 'com.blankj:utilcodex:1.29.0' //各种工具类库
     //腾讯的key-value
     implementation("com.tencent:mmkv-static:1.2.1")
+
+    implementation 'com.just.agentweb:agentweb-androidx:4.1.4' // (必选)
+
 }

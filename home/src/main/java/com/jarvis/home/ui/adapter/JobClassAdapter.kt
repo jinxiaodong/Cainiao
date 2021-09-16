@@ -3,6 +3,7 @@ package com.jarvis.home.ui.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.jarvis.common.webview.WebActivity
 import com.jarvis.home.databinding.ItemJobClassBinding
 import com.jarvis.home.net.JobClassList
 
@@ -46,7 +47,7 @@ class JobClassAdapter(private val mList: JobClassList) :
         fun bind(info: JobClassList.JobClassListItem) {
             binding.url = info.course?.img_url
             itemView.setOnClickListener {
-//                WebActivity.openUrl(it.context, info.course?.h5site ?: "https://m.cniao5.com")
+                WebActivity.openUrl(it.context, info.course?.h5site ?: "https://m.cniao5.com")
             }
             binding.executePendingBindings()
         }

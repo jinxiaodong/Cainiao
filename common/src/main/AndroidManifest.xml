@@ -3,4 +3,12 @@
     package="com.jarvis.common">
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+
+    <application>
+        <activity
+            android:name=".webview.WebActivity"
+            android:configChanges="orientation|screenSize"
+            android:hardwareAccelerated="true"
+            android:launchMode="singleTop" />
+    </application>
 </manifest>
