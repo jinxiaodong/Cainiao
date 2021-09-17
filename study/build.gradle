@@ -19,5 +19,6 @@ dependencies {
     //form dependencies.gradle
     implementation project(path: ':service')
     implementation("com.daimajia.numberprogressbar:library:1.4@aar")
+    implementation 'cn.jzvd:jiaozivideoplayer:7.5.0'
 
 }

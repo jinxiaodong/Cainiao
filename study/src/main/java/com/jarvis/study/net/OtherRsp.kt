@@ -3,12 +3,11 @@ package com.jarvis.study.net
 import androidx.annotation.Keep
 
 
-
- /**
-  * @author jinxiaodong
-  * @description： 
-  * @date 2021/9/8
-  */
+/**
+ * @author jinxiaodong
+ * @description：
+ * @date 2021/9/8
+ */
 
 //region 首页 页面配置返回
 /**
@@ -93,7 +92,12 @@ data class HasCoursePermission(
     val get_method: Int,
     val is_true: Int, //1 有 0 无
     val type: String,
-)
+) {
+    companion object {
+        const val HAS_COURSE_PERMISSION = 1
+        const val NO_COURSE_PERMISSION = 0
+    }
+}
 
 //课程播放相关，通过key查询返回
 @Keep

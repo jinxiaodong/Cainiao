@@ -7,14 +7,14 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.jarvis.study.databinding.ItemCourseStudyBinding
 import com.jarvis.study.net.StudiedRsp
-import com.jarvis.study.repo.StudyRepo
 
 /**
  * @author jinxiaodong
  * @description：
  * @date 2021/9/8
  */
-class StudyPageAdapter : PagingDataAdapter<StudiedRsp.Data, StudiedVH>(differCallback) {
+class StudyPageAdapter(private val callback: (StudiedRsp.Data) -> Unit) :
+    PagingDataAdapter<StudiedRsp.Data, StudiedVH>(differCallback) {
 
 
     companion object {
@@ -39,8 +39,11 @@ class StudyPageAdapter : PagingDataAdapter<StudiedRsp.Data, StudiedVH>(differCal
 
 
     override fun onBindViewHolder(holder: StudiedVH, position: Int) {
-        getItem(position)?.let {
-            holder.bind(it)
+        getItem(position)?.let { item ->
+            holder.bind(item)
+            holder.itemView.setOnClickListener {
+                callback.invoke(item)
+            }
         }
     }
 

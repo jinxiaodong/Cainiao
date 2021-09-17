@@ -4,6 +4,7 @@ import android.graphics.Paint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.jarvis.common.webview.WebActivity
 import com.jarvis.home.databinding.ItemHomeCourseBinding
 import com.jarvis.home.net.HomeCourseItem
 
@@ -41,6 +42,9 @@ class HomeCourseAdapter(private val mList: List<HomeCourseItem>) :
         fun bind(info: HomeCourseItem) {
             binding.info = info
             binding.tvOldPriceItemCourse.paintFlags += Paint.STRIKE_THRU_TEXT_FLAG
+            itemView.setOnClickListener { v ->
+                WebActivity.openUrl(v.context, "https://m.cniao5.com/course/${info.id}")
+            }
             binding.executePendingBindings()
         }
     }

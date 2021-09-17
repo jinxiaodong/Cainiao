@@ -6,6 +6,7 @@ import com.jarvis.study.net.StudyService
 import com.jarvis.study.repo.IStudyResource
 import com.jarvis.study.repo.StudyRepo
 import com.jarvis.study.ui.StudyViewModel
+import com.jarvis.study.ui.play.ClassPlayViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.parameter.parametersOf
 import org.koin.dsl.bind
@@ -28,4 +29,6 @@ val moduleStudy = module {
     single { StudyRepo(get<StudyService>()) } bind IStudyResource::class
 //
     viewModel { StudyViewModel(get()) }
+
+    viewModel { ClassPlayViewModel(get()) }
 }

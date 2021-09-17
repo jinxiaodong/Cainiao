@@ -2,9 +2,8 @@ package com.jarvis.study.repo
 
 import androidx.lifecycle.LiveData
 import androidx.paging.PagingData
-import com.jarvis.study.net.BoughtRsp
-import com.jarvis.study.net.StudiedRsp
-import com.jarvis.study.net.StudyInfoRsp
+import com.jarvis.common.model.SingleLiveData
+import com.jarvis.study.net.*
 import kotlinx.coroutines.flow.Flow
 
 /**
@@ -34,4 +33,23 @@ interface IStudyResource {
     suspend fun getBoughtCourse(): Flow<PagingData<BoughtRsp.Data>>
 
 
+
+    val livePermissionResult: LiveData<HasCoursePermission>
+    val liveChapterList: LiveData<ChapterListRsp>
+    val livePlayCourse: SingleLiveData<PlayCourseRsp>
+
+    /**
+     * 根据课程id查询该用户是否有权限看课程
+     */
+    suspend fun hasPermission(courseId: Int)
+
+    /**
+     * 根据课程id，获取课程的章节课时
+     */
+    suspend fun getChapters(courseId: Int)
+
+    /**
+     * 根据章节课时里面的key，获取对应的视频播放信息，用于播放
+     */
+    suspend fun getPlayInfo(key: String)
 }

@@ -11,7 +11,9 @@ import com.jarvis.common.base.BaseFragment
 import com.jarvis.service.repo.CniaoDbHelper
 import com.jarvis.study.databinding.FragmentStudyBinding
 import com.jarvis.study.ui.StudyLoadStateAdapter
+import com.jarvis.study.ui.StudyPageAdapter
 import com.jarvis.study.ui.StudyViewModel
+import com.jarvis.study.ui.play.ClassPlayActivity
 import kotlinx.coroutines.flow.collectLatest
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -29,9 +31,13 @@ class StudyFragment : BaseFragment() {
     override fun bindView(view: View, savedInstanceState: Bundle?): ViewDataBinding {
         return FragmentStudyBinding.bind(view).apply {
             vm = viewModel
+            adapter = studyPageAdapter
         }
     }
 
+    private val studyPageAdapter = StudyPageAdapter { info ->
+        ClassPlayActivity.openPlay(requireContext(), info)
+    }
 
     override fun initData() {
         super.initData()
@@ -43,8 +49,8 @@ class StudyFragment : BaseFragment() {
         viewModel.getStudyData()
 
         viewModel.apply {
-            adapter.withLoadStateFooter(footer = StudyLoadStateAdapter())
-            adapter.addLoadStateListener {
+            studyPageAdapter.withLoadStateFooter(footer = StudyLoadStateAdapter())
+            studyPageAdapter.addLoadStateListener {
                 when (it.refresh) {
                     is LoadState.NotLoading -> {
 
@@ -62,7 +68,7 @@ class StudyFragment : BaseFragment() {
             }
 
             lifecycleScope.launchWhenStarted {
-                studiedList().asFlow().collectLatest { adapter.submitData(lifecycle, it) }
+                studiedList().asFlow().collectLatest { studyPageAdapter.submitData(lifecycle, it) }
             }
         }
     }

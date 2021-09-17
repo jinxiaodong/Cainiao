@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.jarvis.common.webview.WebActivity
 import com.jarvis.course.databinding.ItemCourseBinding
 import com.jarvis.course.net.CourseListRsp
 
@@ -61,6 +62,9 @@ class CourseVH(private val binding: ItemCourseBinding) : RecyclerView.ViewHolder
     fun bind(info: CourseListRsp.Data) {
         binding.info = info
         binding.tvOldPriceItemCourse.paint.flags += Paint.STRIKE_THRU_TEXT_FLAG
+        itemView.setOnClickListener { v ->
+            WebActivity.openUrl(v.context, "https://m.cniao5.com/course/${info.id}")
+        }
         binding.executePendingBindings()
     }
 

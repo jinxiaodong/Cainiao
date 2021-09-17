@@ -6,15 +6,13 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import com.blankj.utilcode.util.LogUtils
+import com.jarvis.common.model.SingleLiveData
 import com.jarvis.common.net.support.serverData
 import com.jarvis.service.network.onBizError
 import com.jarvis.service.network.onBizOK
 import com.jarvis.service.network.onFailure
 import com.jarvis.service.network.onSuccess
-import com.jarvis.study.net.BoughtRsp
-import com.jarvis.study.net.StudiedRsp
-import com.jarvis.study.net.StudyInfoRsp
-import com.jarvis.study.net.StudyService
+import com.jarvis.study.net.*
 import com.jarvis.study.repo.data.BoughtItemPagingSource
 import com.jarvis.study.repo.data.StudiedItemPagingSource
 import kotlinx.coroutines.flow.Flow
@@ -73,5 +71,69 @@ class StudyRepo(private val service: StudyService) : IStudyResource {
         return Pager(config = config, null) {
             BoughtItemPagingSource(service)
         }.flow
+    }
+
+
+    private val _livePermission = MutableLiveData<HasCoursePermission>()
+    private val _liveChapterList = MutableLiveData<ChapterListRsp>()
+    private val _livePlayCourse = SingleLiveData<PlayCourseRsp>()
+
+
+    override val livePermissionResult: LiveData<HasCoursePermission> = _livePermission
+    override val liveChapterList: LiveData<ChapterListRsp> = _liveChapterList
+    override val livePlayCourse: SingleLiveData<PlayCourseRsp> = _livePlayCourse
+
+    override suspend fun hasPermission(courseId: Int) {
+        service.getCoursePermission(courseId)
+            .serverData()
+            .onSuccess {
+                //只要不是接口响应成功，
+                onBizError { code, message ->
+                    LogUtils.w("学习权限 BizError $code,$message")
+                }
+                onBizOK<HasCoursePermission> { code, data, message ->
+                    _livePermission.value = data
+                    LogUtils.i("学习权限 BizOK $data")
+                    return@onBizOK
+                }
+            }.onFailure {
+                LogUtils.e("学习权限 接口异常 ${it.message}")
+            }
+    }
+
+    override suspend fun getChapters(courseId: Int) {
+        service.getCourseChapter(courseId)
+            .serverData()
+            .onSuccess {
+                //只要不是接口响应成功，
+                onBizError { code, message ->
+                    LogUtils.w("课时章节 BizError $code,$message")
+                }
+                onBizOK<ChapterListRsp> { code, data, message ->
+                    _liveChapterList.value = data
+                    LogUtils.i("课时章节 BizOK $data")
+                    return@onBizOK
+                }
+            }.onFailure {
+                LogUtils.e("课时章节 接口异常 ${it.message}")
+            }
+    }
+
+    override suspend fun getPlayInfo(key: String) {
+        service.getCoursePlayUrl(key)
+            .serverData()
+            .onSuccess {
+                //只要不是接口响应成功，
+                onBizError { code, message ->
+                    LogUtils.w("课时播放信息 BizError $code,$message")
+                }
+                onBizOK<PlayCourseRsp> { code, data, message ->
+                    _livePlayCourse.value = data
+                    LogUtils.i("课时播放信息 BizOK $data")
+                    return@onBizOK
+                }
+            }.onFailure {
+                LogUtils.e("课时播放信息 接口异常 ${it.message}")
+            }
     }
 }

@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import com.jarvis.common.BuildConfig
 import com.jarvis.common.R
+import com.jarvis.common.webview.JsAndroidApi.JS_CALL_APP_KEY
 import com.just.agentweb.AgentWeb
 import com.just.agentweb.AgentWebView
 import com.just.agentweb.DefaultWebClient
@@ -53,6 +54,7 @@ class WebActivity : AppCompatActivity() {
 
         val url = intent.getStringExtra("url")
         mAgentWeb.urlLoader.loadUrl(url)
+        mAgentWeb.jsInterfaceHolder.addJavaObject(JS_CALL_APP_KEY,JsAndroidApi)
         AgentWebView.setWebContentsDebuggingEnabled(BuildConfig.DEBUG)
     }
 

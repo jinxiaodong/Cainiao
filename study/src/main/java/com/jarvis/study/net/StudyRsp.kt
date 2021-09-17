@@ -1,6 +1,8 @@
 package com.jarvis.study.net
 
+import android.os.Parcelable
 import androidx.annotation.Keep
+import kotlinx.android.parcel.Parcelize
 
 /**
  * @author jinxiaodong
@@ -25,6 +27,7 @@ data class StudiedRsp(
     val total: Int,
     val total_page: Int
 ) {
+    @Parcelize
     @Keep
     data class Data(
         val brief: String?,
@@ -50,7 +53,8 @@ data class StudiedRsp(
         val original_price: Double,
         val progress: Double,
         val title: String?
-    ) {
+    ): Parcelable {
+        @Parcelize
         @Keep
         data class Course(
             val h5site: String?,
@@ -58,14 +62,15 @@ data class StudiedRsp(
             val img_url: String?,
             val name: String?,
             val website: String?
-        )
+        ): Parcelable
 
+        @Parcelize
         @Keep
         data class FirstCategory(
             val code: String?,
             val id: Int,
             val title: String?
-        )
+        ): Parcelable
     }
 }
 

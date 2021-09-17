@@ -38,4 +38,26 @@ interface StudyService {
         @Query("size") size: Int = 10
     ): Call<BaseCniaoRsp>
 
+    /**
+     * 根据course_id 查询当前学员是否有课程，班级的权限
+     */
+    @GET("/course/authority")
+    fun getCoursePermission(@Query("course_id") courseId: Int): Call<BaseCniaoRsp>
+
+
+    /**
+     * 根据course_id 查询课程章节
+     */
+    @GET("/course/chapter")
+    fun getCourseChapter(@Query("course_id") courseId: Int): Call<BaseCniaoRsp>
+
+
+    /**
+     * 根据课程key，获取播放地址
+     */
+    @GET("/lesson/play/v2")
+    fun getCoursePlayUrl(@Query("key") key: String): Call<BaseCniaoRsp>
+
+
+
 }

@@ -4,6 +4,7 @@ if (singleModule.toBoolean()) {
     apply plugin: 'com.android.library'
 }
 apply from: '../dependencies.gradle'
+apply plugin: 'kotlin-android'
 
 android {
     //form dependencies.gradle
@@ -18,5 +19,4 @@ android {
 dependencies {
     //form dependencies.gradle
     implementation project(path: ':service')
-
 }

@@ -23,7 +23,6 @@ class StudyViewModel(private val repo: IStudyResource) : BaseViewModel() {
     //用户基本信息，头像和名字
     val obUserInfo = ObservableField<CniaoUserInfo>()
 
-    val adapter = StudyPageAdapter()
 
 
     fun getStudyData() = serverAwait {
