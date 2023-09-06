@@ -2,7 +2,7 @@ import groovy.json.JsonSlurper
 import java.text.SimpleDateFormat
 
 // 打包测试环境 apk 上传蒲公英 钉钉群通知
-task packageApk {
+tasks.register('packageApk') {
     // 让packageApk 依赖于assembleRelease(Debug). 包构建成功后
     //才会执行uploadApk()
     dependsOn("assemble" + BUILD_TYPE.capitalize())
